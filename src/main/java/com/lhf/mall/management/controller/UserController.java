@@ -1,11 +1,12 @@
 package com.lhf.mall.management.controller;
 
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import com.lhf.mall.management.domain.UserEntity;
+import com.lhf.mall.management.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -21,15 +22,19 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/user")
 public class UserController {
 
-    @RequestMapping("/hello")
-    public String hello(HttpServletRequest request, @RequestParam(value = "name", defaultValue = "springboot-thymeleaf") String name) {
-        request.setAttribute("name", name);
-        return "hello";
-    }
+    @Autowired
+    private UserService userService;
 
-    @GetMapping
+    @RequestMapping
     public String login(){
         return "lyear_pages_login";
+    }
+
+    @RequestMapping("/login")
+    public String login(HttpServletRequest request,UserEntity userEntity){
+        String token = userService.login(userEntity);
+        request.setAttribute("token",token);
+        return "index";
     }
 
 }
