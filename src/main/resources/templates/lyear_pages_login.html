@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
@@ -55,28 +55,19 @@
   <div class="lyear-login">
     <div class="login-center">
       <div class="login-header text-center">
-        <a href="index.html"> <img alt="light year admin" src="images/logo-sidebar.png"> </a>
+        <a href="index.html"> <img alt="light year admin" src="/images/logo-sidebar.png"> </a>
       </div>
-      <form action="/#" method="post">
+      <form action="/#" method="post" th:action="@{/login/login}">
         <div class="form-group has-feedback feedback-left">
-          <input type="text" placeholder="请输入您的用户名" class="form-control" name="username" id="username" />
+          <input type="text" placeholder="请输入手机号" class="form-control" name="phone" id="username" />
           <span class="mdi mdi-account form-control-feedback" aria-hidden="true"></span>
         </div>
         <div class="form-group has-feedback feedback-left">
           <input type="password" placeholder="请输入密码" class="form-control" id="password" name="password" />
           <span class="mdi mdi-lock form-control-feedback" aria-hidden="true"></span>
         </div>
-        <!--<div class="form-group has-feedback feedback-left row">
-          <div class="col-xs-7">
-            <input type="text" name="captcha" class="form-control" placeholder="验证码">
-            <span class="mdi mdi-check-all form-control-feedback" aria-hidden="true"></span>
-          </div>
-          <div class="col-xs-5">
-            <img src="images/captcha.png" class="pull-right" id="captcha" style="cursor: pointer;" onclick="this.src=this.src+'?d='+Math.random();" title="点击刷新" alt="captcha">
-          </div>
-        </div>-->
         <div class="form-group">
-          <button class="btn btn-block btn-primary login" type="button">立即登录</button>
+          <button class="btn btn-block btn-primary login" type="submit">立即登录</button>
         </div>
       </form>
       <hr>
@@ -86,8 +77,6 @@
     </div>
   </div>
 </div>
-<script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="/js/user/user.js"></script>
 <script type="text/javascript" src="/js/jquery.min.js"></script>
 <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 <script type="text/javascript">;</script>

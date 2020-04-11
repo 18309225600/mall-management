@@ -1,0 +1,48 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:http="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<!-- th:fragment 定义需要引入的代码块，该div包含的内容即为引用的公共内容 -->
+<div th:fragment="navigation">
+    <div class="navigation">
+        <aside class="lyear-layout-sidebar">
+
+            <!-- logo -->
+            <div id="logo" class="sidebar-header">
+                <a href="index.html"><img src="/images/logo-sidebar.png" title="LightYear" alt="LightYear" /></a>
+            </div>
+            <div class="lyear-layout-sidebar-scroll">
+
+                <nav class="sidebar-main">
+                    <ul class="nav nav-drawer">
+                        <li class="nav-item active"> <a href="/user/index"><i class="mdi mdi-home"></i> 后台首页</a> </li>
+                        <li class="nav-item nav-item-has-subnav">
+                            <a href="javascript:void(0)"><i class="mdi mdi-account"></i> 用户管理 </a>
+                            <ul class="nav nav-subnav">
+                                <li> <a class="mdi mdi-account-card-details user_list_page">用户列表</a> </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item nav-item-has-subnav">
+                            <a href="javascript:void(0)"><i class="mdi mdi-palette"></i> 商品管理 </a>
+                            <ul class="nav nav-subnav">
+                                <li> <a class="goods_list_page">商品列表</a> </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item nav-item-has-subnav">
+                            <a href="javascript:void(0)"><i class="mdi mdi-palette"></i> 订单管理 </a>
+                            <ul class="nav nav-subnav">
+                                <li> <a class="order_list_page">订单列表</a> </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </nav>
+
+                <div class="sidebar-footer">
+                    <p class="copyright">Copyright &copy; 2019. | All rights.</p>
+                </div>
+            </div>
+
+        </aside>
+    </div>
+</div>
+</html>

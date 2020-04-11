@@ -24,7 +24,11 @@ public class WebMvcCofig extends WebMvcConfigurationSupport {
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-
         super.addInterceptors(registry);
+
+        registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/**")
+                .excludePathPatterns("/login/**")
+                .excludePathPatterns("/**/*.css", "/**/*.js", "/**/*.png", "/**/*.jpg", "/**/*.jpeg", "/*.html", "/**/*.html","/swagger-resources/**");
+
     }
 }

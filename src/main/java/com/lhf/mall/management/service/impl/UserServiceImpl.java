@@ -22,10 +22,10 @@ import java.util.UUID;
 public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements UserService {
 
     @Override
-    public String login(UserEntity userEntity) {
+    public UserEntity login(UserEntity userEntity) {
         UserEntity dbUser = getUserByPhone(userEntity.getPhone());
         if (Objects.nonNull(dbUser)&&dbUser.getPassword().equals(userEntity.getPassword())){
-            return UUID.randomUUID().toString();
+            return dbUser;
         }
         return null;
     }

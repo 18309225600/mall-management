@@ -43,6 +43,10 @@ public class UserEntity extends Model<UserEntity> {
      * 密码
      */
     private String password;
+    /**
+     * 用户状态
+     */
+    private Integer Status;
 
     private LocalDateTime createTime;
 

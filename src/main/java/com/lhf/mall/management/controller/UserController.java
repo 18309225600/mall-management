@@ -25,16 +25,14 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping
-    public String login(){
-        return "lyear_pages_login";
+    @GetMapping("/index")
+    public String index(){
+        return "index";
     }
 
-    @RequestMapping("/login")
-    public String login(HttpServletRequest request,UserEntity userEntity){
-        String token = userService.login(userEntity);
-        request.setAttribute("token",token);
-        return "index";
+    @GetMapping("/list/page")
+    public String listPage(){
+        return "user_list";
     }
 
 }
