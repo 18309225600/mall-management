@@ -7,6 +7,7 @@ import com.lhf.mall.management.service.UserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -28,6 +29,13 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
             return dbUser;
         }
         return null;
+    }
+
+    @Override
+    public List<UserEntity> listData() {
+        LambdaQueryWrapper<UserEntity> queryWrapper = new LambdaQueryWrapper<UserEntity>()
+                .isNull(UserEntity::getDeletedTime);
+        return list(queryWrapper);
     }
 
     private UserEntity getUserByPhone(String phone) {

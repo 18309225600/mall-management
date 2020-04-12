@@ -25,8 +25,6 @@ public class LoginInterceptor implements HandlerInterceptor {
         UserEntity user = (UserEntity) session.getAttribute("user");
 
         if (Objects.isNull(user)){
-            log.info("用户凭证不存在,跳转登录页。。");
-            response.sendRedirect(request.getContextPath()+"/login/page");
             return false;
         }
 

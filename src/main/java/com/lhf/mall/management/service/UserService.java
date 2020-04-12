@@ -3,6 +3,8 @@ package com.lhf.mall.management.service;
 import com.lhf.mall.management.domain.UserEntity;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务类
@@ -14,4 +16,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
 public interface UserService extends IService<UserEntity> {
 
     UserEntity login(UserEntity userEntity);
+
+    List<UserEntity> listData();
 }

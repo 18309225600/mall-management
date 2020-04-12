@@ -1,11 +1,11 @@
 package com.lhf.mall.management.controller;
 
 import com.lhf.mall.management.domain.UserEntity;
+import com.lhf.mall.management.domain.std.StdResponse;
 import com.lhf.mall.management.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Objects;
@@ -15,7 +15,7 @@ import java.util.Objects;
  * @version v1.0
  * @date 2020/4/11
  **/
-@Controller
+@RestController
 @RequestMapping("/login")
 public class LoginController {
 
@@ -27,15 +27,9 @@ public class LoginController {
         return "lyear_pages_login";
     }
 
-    @RequestMapping("/login")
-    public String login(HttpServletRequest request, UserEntity userEntity){
+    @PostMapping
+    public StdResponse login(@RequestBody UserEntity userEntity){
         UserEntity user = userService.login(userEntity);
-        request.getSession().setAttribute("user",user);
-        if (Objects.nonNull(user)){
-            return "index";
-        }else{
-            return "lyear_pages_login";
-        }
-
+        return StdResponse.newCorrectResponse(user);
     }
 }
