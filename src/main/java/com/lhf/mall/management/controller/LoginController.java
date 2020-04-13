@@ -22,11 +22,6 @@ public class LoginController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/page")
-    public String loginPage(){
-        return "lyear_pages_login";
-    }
-
     @PostMapping
     public StdResponse login(@RequestBody UserEntity userEntity){
         UserEntity user = userService.login(userEntity);
