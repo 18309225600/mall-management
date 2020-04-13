@@ -15,7 +15,7 @@ import java.util.List;
  */
 public interface UserService extends IService<UserEntity> {
 
-    UserEntity login(UserEntity userEntity);
+    String login(UserEntity userEntity);
 
     List<UserEntity> listData();
 }

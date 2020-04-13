@@ -31,7 +31,7 @@ public class UserController {
     @GetMapping("/list")
     public StdResponse list(){
         List<UserEntity> userEntities = userService.listData();
-        return StdResponse.newCorrectResponse(userEntities);
+        return StdResponse.newCorrectStdResponse(userEntities);
     }
 
 }

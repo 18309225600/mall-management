@@ -1,5 +1,6 @@
 package com.lhf.mall.management.controller;
 
+import com.google.common.collect.Maps;
 import com.lhf.mall.management.domain.UserEntity;
 import com.lhf.mall.management.domain.std.StdResponse;
 import com.lhf.mall.management.service.UserService;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -24,7 +26,9 @@ public class LoginController {
 
     @PostMapping
     public StdResponse login(@RequestBody UserEntity userEntity){
-        UserEntity user = userService.login(userEntity);
-        return StdResponse.newCorrectResponse(user);
+        String token = userService.login(userEntity);
+        Map<String,String> result = Maps.newHashMapWithExpectedSize(1);
+        result.put("token",token);
+        return StdResponse.newCorrectStdResponse(result);
     }
 }

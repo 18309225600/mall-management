@@ -1,8 +1,15 @@
 package com.lhf.mall.management.config;
 
+import com.lhf.mall.management.constant.StrConstant;
 import com.lhf.mall.management.domain.UserEntity;
+import com.lhf.mall.management.domain.std.StdErrorCodeEnum;
+import com.lhf.mall.management.domain.std.StdException;
 import com.lhf.mall.management.util.SessionUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,20 +23,24 @@ import java.util.Objects;
  * @date 2020/4/11
  **/
 @Slf4j
+@Component
 public class LoginInterceptor implements HandlerInterceptor {
+
+    @Autowired
+    private RedisTemplate<String,String> redisTemplate;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        HttpSession session = request.getSession();
-        //check session invalid
-        UserEntity user = (UserEntity) session.getAttribute("user");
-
-        if (Objects.isNull(user)){
-            return false;
+        String token = request.getHeader(StrConstant.TOKEN);
+        if (StringUtils.isEmpty(token)){
+            throw new StdException(StdErrorCodeEnum.MALL_USER_00001);
         }
 
-        log.info("current login username is : {}",user.getName());
-        SessionUtils.set(user);
+        redisTemplate.opsForValue().get(token);
+
+
+        //log.info("current login username is : {}",user.getName());
+        //SessionUtils.set(user);
         return true;
     }
 
