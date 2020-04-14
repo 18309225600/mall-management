@@ -1,5 +1,7 @@
 package com.lhf.mall.management.config;
 
+import com.alibaba.fastjson.JSON;
+import com.lhf.mall.management.constant.RedisKeyConstant;
 import com.lhf.mall.management.constant.StrConstant;
 import com.lhf.mall.management.domain.UserEntity;
 import com.lhf.mall.management.domain.std.StdErrorCodeEnum;
@@ -15,6 +17,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.text.MessageFormat;
 import java.util.Objects;
 
 /**
@@ -36,11 +39,13 @@ public class LoginInterceptor implements HandlerInterceptor {
             throw new StdException(StdErrorCodeEnum.MALL_USER_00001);
         }
 
-        redisTemplate.opsForValue().get(token);
+        String tokenRedisKey = MessageFormat.format(RedisKeyConstant.USER_TOKEN, token);
+        String userJson = redisTemplate.opsForValue().get(tokenRedisKey);
+        UserEntity user = JSON.parseObject(userJson,UserEntity.class);
 
 
-        //log.info("current login username is : {}",user.getName());
-        //SessionUtils.set(user);
+        log.info("current login username is : {}",user.getName());
+        SessionUtils.set(user);
         return true;
     }
 

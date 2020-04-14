@@ -30,15 +30,21 @@ public class SessionUtils {
         return context.get().getUserName();
     }
 
+    public static UserEntity getUserEntity(){
+        return context.get().getUserEntity();
+    }
+
     public static class SessionHolder{
         private Long userId;
         private String userName;
         private String phone;
+        private UserEntity userEntity;
 
         public SessionHolder() {
         }
 
         public SessionHolder(UserEntity user) {
+            this.userEntity = user;
             this.userId = user.getId();
             this.userName = user.getName();
             this.phone = user.getPhone();
@@ -66,6 +72,14 @@ public class SessionUtils {
 
         public void setPhone(String phone) {
             this.phone = phone;
+        }
+
+        public UserEntity getUserEntity() {
+            return userEntity;
+        }
+
+        public void setUserEntity(UserEntity userEntity) {
+            this.userEntity = userEntity;
         }
     }
 }
