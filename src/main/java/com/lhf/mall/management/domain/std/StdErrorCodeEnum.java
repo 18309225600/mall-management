@@ -20,6 +20,9 @@ public enum StdErrorCodeEnum {
     MALL_GOODS_00001("300001","商品不存在"),
 
 
+    MALL_ORDER_00001("400001","订单信息不存在"),
+
+
     ;
 
 

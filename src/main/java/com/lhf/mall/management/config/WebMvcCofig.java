@@ -39,7 +39,8 @@ public class WebMvcCofig extends WebMvcConfigurationSupport {
         super.addInterceptors(registry);
 
         registry.addInterceptor(loginInterceptor).addPathPatterns("/**")
-                .excludePathPatterns("/login/**");
+                .excludePathPatterns("/login/**")
+                .excludePathPatterns("/oss/**");
 
     }
 
