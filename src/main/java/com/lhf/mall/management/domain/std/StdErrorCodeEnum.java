@@ -17,6 +17,9 @@ public enum StdErrorCodeEnum {
     MALL_USER_00005("200005","用户不存在"),
 
 
+    MALL_GOODS_00001("300001","商品不存在"),
+
+
     ;
 
 

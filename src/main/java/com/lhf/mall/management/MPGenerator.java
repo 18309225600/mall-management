@@ -48,7 +48,7 @@ public class MPGenerator {
         dsc.setUrl("jdbc:mysql://localhost:3306/mall-management?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
-        dsc.setPassword("123456");
+        dsc.setPassword("root");
         mpg.setDataSource(dsc);
 
         // 包配置
@@ -103,7 +103,7 @@ public class MPGenerator {
         // 设置逻辑删除键
         // strategy.setLogicDeleteFieldName("deleted");
         // TODO 指定生成的bean的数据库表名
-        strategy.setInclude("mall_user");
+        strategy.setInclude("mall_goods");
         //strategy.setSuperEntityColumns("id");
         // 驼峰转连字符
         strategy.setControllerMappingHyphenStyle(true);

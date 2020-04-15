@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lhf.mall.management.dao.GoodsDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lhf.mall.management.domain.GoodsEntity">
+        <id column="id" property="id" />
+        <result column="product_name" property="productName" />
+        <result column="url_suffix" property="urlSuffix" />
+        <result column="facebook_num" property="facebookNum" />
+        <result column="line_num" property="lineNum" />
+        <result column="template_id" property="templateId" />
+        <result column="template_name" property="templateName" />
+        <result column="domain_name" property="domainName" />
+        <result column="title" property="title" />
+        <result column="special_offer" property="specialOffer" />
+        <result column="original_offer" property="originalOffer" />
+        <result column="currency_symbol" property="currencySymbol" />
+        <result column="sales_volume" property="salesVolume" />
+        <result column="remaining_num" property="remainingNum" />
+        <result column="show_shop_match" property="showShopMatch" />
+        <result column="show_discount_code" property="showDiscountCode" />
+        <result column="default_selection_specification" property="defaultSelectionSpecification" />
+        <result column="promotion_words" property="promotionWords" />
+        <result column="purchase_link" property="purchaseLink" />
+        <result column="purchase_cost" property="purchaseCost" />
+        <result column="remark" property="remark" />
+        <result column="create_time" property="createTime" />
+        <result column="deleted_time" property="deletedTime" />
+    </resultMap>
+
+</mapper>
