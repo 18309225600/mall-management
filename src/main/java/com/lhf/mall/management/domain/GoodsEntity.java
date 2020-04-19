@@ -47,6 +47,11 @@ public class GoodsEntity extends Model<GoodsEntity> {
     private String lineNum;
 
     /**
+     * 国家
+     */
+    private String country;
+
+    /**
      * 模板ID
      */
     private Long templateId;
@@ -125,6 +130,14 @@ public class GoodsEntity extends Model<GoodsEntity> {
      * 备注
      */
     private String remark;
+    /**
+     * 首图
+     */
+    private String headImg;
+    /**
+     * 产品详情
+     */
+    private String detail;
 
     /**
      * 创建时间

@@ -26,4 +26,12 @@ public class TemplateServiceImpl extends ServiceImpl<TemplateDao, TemplateEntity
                 .isNull(TemplateEntity::getDeletedTime);
         return list(queryWrapper);
     }
+
+    @Override
+    public TemplateEntity getTemplateById(Long templateId) {
+        LambdaQueryWrapper<TemplateEntity> queryWrapper = new LambdaQueryWrapper<TemplateEntity>()
+                .eq(TemplateEntity::getId, templateId)
+                .isNull(TemplateEntity::getDeletedTime);
+        return getOne(queryWrapper,false);
+    }
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lhf.mall.management.dao.OrderProcessDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lhf.mall.management.domain.OrderProcessEntity">
+        <id column="id" property="id" />
+        <result column="order_id" property="orderId" />
+        <result column="type" property="type" />
+        <result column="remark" property="remark" />
+        <result column="order_status" property="orderStatus" />
+        <result column="delivery_company" property="deliveryCompany" />
+        <result column="delivery_num" property="deliveryNum" />
+        <result column="create_time" property="createTime" />
+        <result column="deleted_time" property="deletedTime" />
+    </resultMap>
+
+</mapper>

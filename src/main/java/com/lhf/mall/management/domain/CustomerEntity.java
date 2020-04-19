@@ -37,14 +37,11 @@ public class CustomerEntity extends Model<CustomerEntity> {
     private String phone;
 
     /**
-     * 地区
+     * 国家
      */
-    private String region;
-
-    /**
-     * 地区ID
-     */
-    private Long regionId;
+    private String country;
+    private String province;
+    private String city;
 
     /**
      * 详细地址
@@ -55,11 +52,6 @@ public class CustomerEntity extends Model<CustomerEntity> {
      * 邮箱
      */
     private String email;
-
-    /**
-     * 留言
-     */
-    private String remark;
 
     /**
      * 创建时间

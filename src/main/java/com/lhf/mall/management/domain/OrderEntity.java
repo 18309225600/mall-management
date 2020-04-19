@@ -56,15 +56,21 @@ public class OrderEntity extends Model<OrderEntity> {
      */
     private String customerCountry;
 
+    private String customerProvince;
+    private String customerCity;
+    private String customerAddress;
+    private String customerEmail;
+    private String customerRemark;
+
     /**
      * 配送方式
      */
-    private String delivery;
+    private Integer delivery;
 
     /**
      * 金额
      */
-    private String amout;
+    private String amount;
 
     /**
      * 货币符号

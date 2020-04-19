@@ -16,4 +16,6 @@ import java.util.List;
 public interface TemplateService extends IService<TemplateEntity> {
 
     List<TemplateEntity> listTemplates();
+
+    TemplateEntity getTemplateById(Long templateId);
 }
